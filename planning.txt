@@ -1,0 +1,24 @@
+Smart Task Management System:
+    @src:
+        *config: Database Management
+        *controller: Handle Routes
+        *middleware: Auth, error handling
+        *models: Schema define
+        *routes: Various request
+        *services: Logic
+        *app.ts: Initialize
+
+    @testing:
+        *jest testing
+        *Postman- API Routes
+
+    @Access:
+        *Admin: All routes
+        *User: Only his routes
+
+    @Routes:
+        *AUTH:
+            #POST: REGISTER, LOGIN
+        *USER:
+            #GET:PROFILE
+            #POST:PROFILE

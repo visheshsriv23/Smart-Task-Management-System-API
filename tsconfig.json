@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    /* File Layout */
+    "rootDir": "./src",                        // Points to your TypeScript source files
+    "outDir": "./dist",                        // Where compiled JavaScript files will go
+
+    /* Environment Settings */
+    "module": "nodenext",                      // Modern Node module resolution
+    "moduleResolution": "nodenext",
+    "target": "esnext",                        // Compiles to modern JS features
+    "lib": ["esnext"],                         // Includes latest ES features
+
+    /* Other Outputs */
+    "sourceMap": true,                         // Helps with debugging compiled code
+    "declaration": false,                      // Turn off for backend apps unless building a library
+    "declarationMap": false,
+
+    /* Stricter Typechecking Options */
+    "strict": true,                            // Enables all strict type-checking options
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    "noImplicitReturns": true,                 // Ensures all code paths in a function return a value
+    "noUnusedLocals": false,                    // Keeps code clean by flagging unused variables
+    "noUnusedParameters": false,                // Flags unused function parameters
+
+    /* Recommended Options */
+    "verbatimModuleSyntax": false,              // Ensures clean, predictable import/export emitting
+    "isolatedModules": true,
+    "skipLibCheck": true,                       // Speeds up compilation by skipping declaration files check
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,                   // Enables compatibility with CommonJS modules (like bcryptjs)
+  },
+  "include": ["src/**/*"],                     // Explicitly compile everything in the src folder
+  "exclude": ["node_modules", "dist", "**/*.spec.ts", "**/*.test.ts"] // Exclude dependencies, build artifacts, and tests from production build
+}
