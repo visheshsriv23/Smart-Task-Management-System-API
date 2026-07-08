@@ -1,6 +1,8 @@
 import express from 'express';
 import type { Request, Response, NextFunction } from 'express';
 import cors from 'cors';
+import helmet from 'helmet';
+import rateLimit from 'express-rate-limit';
 import dotenv from 'dotenv';
 import authRoutes from './routes/authRoutes.js';
 import taskRoutes from './routes/taskRoutes.js';
@@ -10,10 +12,21 @@ dotenv.config();
 
 const app = express();
 
+app.use(
+  helmet({
+    crossOriginEmbedderPolicy: false,
+  })
+);
+const authLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 5, 
+  message: "Too many login attempts. Please try again later."
+});
+
 app.use(cors());
 app.use(express.json());
 
-app.use('/api/auth', authRoutes);
+app.use('/api/auth',authLimiter, authRoutes);
 app.use('/api/tasks', taskRoutes);
 app.use('/api/users', userRoutes);
 
